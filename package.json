@@ -1,0 +1,91 @@
+{
+  "name": "boberto-problems",
+  "displayName": "Boberto Problems Marker",
+  "description": "Custom tagged comments to VSCode Problems panel using @boberto",
+  "version": "0.0.1",
+  "publisher": "your-name",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:boberto.exportAll"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "boberto.exportAll",
+        "title": "Boberto: Export All Issues"
+      }
+    ],
+    "configuration": {
+      "title": "Boberto Settings",
+      "type": "object",
+      "properties": {
+        "boberto.marker": {
+          "type": "string",
+          "default": "@boberto",
+          "description": "Main marker used to detect Boberto comments"
+        },
+        "boberto.enableEmoji": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable emoji prefix in Problems panel"
+        },
+        "boberto.enableHighlight": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable colored highlight in editor"
+        },
+        "boberto.severityTags": {
+          "type": "object",
+          "default": {
+            "@critico": "error",
+            "@aviso": "warning",
+            "@info": "information",
+            "@dica": "hint"
+          },
+          "description": "Map custom tags to VSCode severity levels"
+        },
+        "boberto.emojis": {
+          "type": "object",
+          "default": {
+            "error": "🔥",
+            "warning": "⚠️",
+            "information": "ℹ️",
+            "hint": "💡"
+          },
+          "description": "Custom emoji for each severity level"
+        },
+        "boberto.colors": {
+          "type": "object",
+          "default": {
+            "error": "#ff0000",
+            "warning": "#ff9900",
+            "information": "#0078d7",
+            "hint": "#888888"
+          },
+          "description": "Custom highlight color per severity (hex format)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package",
+    "build": "npm run compile && npm run package",
+    "install": "npm run build && code --install-extension boberto-problems-0.0.1.vsix --force",
+    "dev": "code --extensionDevelopmentPath=."
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.3",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.7.1",
+    "typescript": "^5.0.0"
+  }
+}

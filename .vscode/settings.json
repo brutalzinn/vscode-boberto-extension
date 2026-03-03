@@ -1,0 +1,27 @@
+{
+  "boberto.marker": "@boberto",
+
+  "boberto.enableEmoji": true,
+  "boberto.enableHighlight": true,
+
+  "boberto.severityTags": {
+    "@critico": "error",
+    "@aviso": "warning",
+    "@info": "information",
+    "@dica": "hint"
+  },
+
+  "boberto.emojis": {
+    "error": "💀",
+    "warning": "🚨",
+    "information": "📘",
+    "hint": "✨"
+  },
+
+  "boberto.colors": {
+    "error": "#ff0000",
+    "warning": "#ff9900",
+    "information": "#0078d7",
+    "hint": "#888888"
+  }
+}
